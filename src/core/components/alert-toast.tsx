@@ -1,4 +1,4 @@
-import { ToastProps } from '@/src/types/ui';
+import { ToastProps } from '@/types/ui';
 import toast from 'react-hot-toast';
 import { useRef } from 'react';
 

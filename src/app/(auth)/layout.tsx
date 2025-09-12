@@ -1,8 +1,10 @@
-import BlankLayout from '@/src/core/layout/blank.layout';
+import BlankLayout from '@/core/layouts/blank.layout';
+import Authproviders from '@/core/providers/auth.provider';
+
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main>
+    <Authproviders>
       <BlankLayout>{children}</BlankLayout>
-    </main>
+    </Authproviders>
   );
 }

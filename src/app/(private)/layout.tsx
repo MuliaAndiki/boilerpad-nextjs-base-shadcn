@@ -1,16 +1,5 @@
-'use client';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAppSelector } from '@/src/hooks/dispatch/dispatch';
-export default function PrivateLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  const user = useAppSelector((state) => state.auth.currentUser);
+import PrivateProviders from '@/core/providers/private.provider';
 
-  useEffect(() => {
-    if (!user) {
-      router.push('/login');
-    }
-  }, [user, router]);
-  if (!user) return null;
-  return <>{children}</>;
+export default async function PrivateLayout({ children }: { children: React.ReactNode }) {
+  return <PrivateProviders>{children}</PrivateProviders>;
 }

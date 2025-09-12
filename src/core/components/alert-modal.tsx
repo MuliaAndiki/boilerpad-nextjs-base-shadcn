@@ -6,8 +6,8 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/src/components/ui/dialog';
-import { ModalProps } from '@/src/types/ui';
+} from '@//components/ui/dialog';
+import { ModalProps } from '@/types/ui';
 
 const iconMap = {
   success: '✅',

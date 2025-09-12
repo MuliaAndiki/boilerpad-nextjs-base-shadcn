@@ -1,4 +1,4 @@
-import { userSchema } from '@/src/types/api';
+import { userSchema } from '@/types/api';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {

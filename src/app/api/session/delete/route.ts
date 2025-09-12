@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 
 import { cookies } from 'next/headers';
-import { APP_SESSION_COOKIE_KEY } from '@/src/config/cookies.config';
+import { APP_SESSION_COOKIE_KEY } from '@/configs/cookies.config';
 
 export async function POST() {
   const cookieStore = await cookies();

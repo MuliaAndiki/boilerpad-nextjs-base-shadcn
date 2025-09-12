@@ -1,10 +1,12 @@
-import BlankLayout from '@/src/core/layout/blank.layout';
-import NotFound from '@/src/core/components/not-found';
+import NotFound from "@/core/components/not-found";
+import BlankLayout from "@/core/layouts/blank.layout";
+
 const NotFoundPage = async () => {
-  return (
-    <BlankLayout>
-      <NotFound />
-    </BlankLayout>
-  );
+    return (
+        <BlankLayout>
+            <NotFound />
+        </BlankLayout>
+    );
 };
+
 export default NotFoundPage;

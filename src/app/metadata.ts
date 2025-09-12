@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const siteConfig = {
-  name: 'Boilerpad-NextJs',
-  description: 'Boilerpad-NextJs .inc',
+  name: 'Next.js Shadcn Base',
+  description: 'Aplikasi berbasis Next.js dengan UI yang modern',
   url: 'https://your-domain.com',
   locale: 'id-ID',
   keywords: ['next.js', 'react', 'aplikasi web', 'indonesia', 'modern ui', 'shadcn'],
