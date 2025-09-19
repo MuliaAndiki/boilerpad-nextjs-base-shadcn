@@ -10,11 +10,13 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from '@/core/providers/theme.provider';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { composeProviders } from './composeProvinders';
+import { AuthProvider } from '@/core/providers/auth.provider';
 
 const Providers = composeProviders([
   ({ children }) => <SidebarProvider defaultOpen={false}>{children}</SidebarProvider>,
   ({ children }) => <Provider store={store}>{children}</Provider>,
   ({ children }) => <PersistGate persistor={persistor}>{children}</PersistGate>,
+  AuthProvider,
   ThemeProvider,
   AlertProvinder,
   ReactQueryClientProvider,
