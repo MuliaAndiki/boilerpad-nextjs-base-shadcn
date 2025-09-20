@@ -32,6 +32,7 @@
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "cookies-next": "^6.1.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.2",
     "i18next": "^24.2.3",

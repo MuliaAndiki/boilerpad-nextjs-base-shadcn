@@ -4,38 +4,42 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/stores/store';
 import { usePathname, useRouter } from 'next/navigation';
+import { getCookie } from 'cookies-next';
+import { useAppDispatch } from '@/hooks/dispatch/dispatch';
+import { setCurrentUser } from '@/stores/authSlice/authSlice';
+import { APP_SESSION_COOKIE_KEY } from '@/configs/cookies.config';
 
-/**
- * Client-side AuthProvider
- * - Watches auth state and pathname changes
- * - If token missing/expired (represented by missing currentUser), redirect to /login
- * - Prevents authenticated users from accessing /login and other auth pages
- */
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const currentUser = useSelector((state: RootState) => state.auth.currentUser);
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    // Grouped routes become top-level routes; e.g. (auth)/login => /login
+    if (!currentUser?.user?.token) {
+      const token = getCookie(APP_SESSION_COOKIE_KEY);
+      if (token) {
+        dispatch(setCurrentUser({ user: { token } } as any));
+      }
+    }
+  }, [currentUser, dispatch]);
+
+  React.useEffect(() => {
     const isAuthPage =
       pathname?.startsWith('/login') ||
       pathname?.startsWith('/register') ||
-      pathname?.startsWith('/forgot-password') ||
-      pathname?.startsWith('/reset-password') ||
-      pathname?.startsWith('/verify-otp');
+      pathname?.startsWith('/home');
 
     const isAuthenticated = Boolean(currentUser?.user?.token);
 
-    // If not authenticated and not already on an auth page, go to login
     if (!isAuthenticated && !isAuthPage) {
       router.replace('/login');
       return;
     }
 
-    // If authenticated and on auth pages, redirect to a default private page
     if (isAuthenticated && isAuthPage) {
-      router.replace('/home');
+      // setUp
+      // router.replace('/home');
       return;
     }
   }, [pathname, currentUser, router]);
