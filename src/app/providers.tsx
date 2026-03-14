@@ -11,6 +11,7 @@ import { ThemeProvider } from '@/core/providers/theme.provider';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { composeProviders } from './composeProvinders';
 import { AuthProvider } from '@/core/providers/auth.provider';
+import { PWAUpdatePrompt } from '@/components/pwa/PWAUpdatePrompt';
 
 const Providers = composeProviders([
   ({ children }) => <SidebarProvider defaultOpen={false}>{children}</SidebarProvider>,
@@ -25,6 +26,7 @@ const Providers = composeProviders([
 export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <Providers>
+      <PWAUpdatePrompt />
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
       <Toaster
