@@ -1,4 +1,5 @@
 import React from 'react';
+import { Home, BookOpen, History, User } from 'lucide-react';
 
 interface AppConfig {
   name: string;
@@ -34,6 +35,11 @@ interface AppConfig {
     };
   };
 }
+
+export type PropsParams = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  id: Promise<string>;
+};
 
 export const appConfig: AppConfig = {
   name: 'App',
@@ -88,9 +94,16 @@ export const navigationMenuConfig: NavigationMenuConfig = {
       description: 'Home',
     },
     {
-      title: 'Kelas',
-      href: '/kelas',
-      description: 'Kelas',
+      title: 'masuk',
+      href: '/login',
+      description: 'masuk',
     },
   ],
 };
+
+export const SIDEBAR_MENU = [
+  { name: 'Beranda', url: '/home', icon: Home, subMenu: [] },
+  { name: 'Module', url: '/module', icon: BookOpen, subMenu: [] },
+  { name: 'Riwayat', url: '/history', icon: History, subMenu: [] },
+  { name: 'Profil', url: '/profile', icon: User, subMenu: [] },
+];

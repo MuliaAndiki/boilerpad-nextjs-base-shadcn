@@ -6,7 +6,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@//components/ui/dialog';
+} from '@/components/atoms';
 import { ModalProps } from '@/types/ui';
 
 const iconMap = {

@@ -8,10 +8,11 @@ import { AlertProvinder } from '@/hooks/useAlert/costum-alert';
 import { ReactQueryClientProvider } from '@/pkg/react-query/query-client.pkg';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from '@/core/providers/theme.provider';
-import { SidebarProvider } from '@/components/ui/sidebar';
+import { SidebarProvider } from '@/components/atoms';
 import { composeProviders } from './composeProvinders';
 import { AuthProvider } from '@/core/providers/auth.provider';
 import { PWAUpdatePrompt } from '@/components/pwa/PWAUpdatePrompt';
+import { LenisProvider } from '@/core/providers/lenis.provinder';
 
 const Providers = composeProviders([
   ({ children }) => <SidebarProvider defaultOpen={false}>{children}</SidebarProvider>,
@@ -20,6 +21,7 @@ const Providers = composeProviders([
   AuthProvider,
   ThemeProvider,
   AlertProvinder,
+  LenisProvider,
   ReactQueryClientProvider,
 ]);
 

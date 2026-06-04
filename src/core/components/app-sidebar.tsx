@@ -16,7 +16,7 @@ import {
   SidebarMenuItem,
   SidebarHeader,
   useSidebar,
-} from '@/components/ui/sidebar';
+} from '@/components/atoms';
 import Image from 'next/image';
 import { kebabCaseToWords } from '@/utils/string.format';
 

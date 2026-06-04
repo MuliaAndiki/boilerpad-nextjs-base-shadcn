@@ -9,25 +9,25 @@ export type Language = (typeof languages)[number];
 export const defaultLanguage: Language = "en";
 
 export const i18nConfig: InitOptions = {
-    defaultNS,
-    fallbackLng,
-    supportedLngs: languages,
-    ns: ["common"],
-    interpolation: {
-        escapeValue: false,
-    },
-    react: {
-        useSuspense: false,
-    },
+  defaultNS,
+  fallbackLng,
+  supportedLngs: languages,
+  ns: ["common"],
+  interpolation: {
+    escapeValue: false,
+  },
+  react: {
+    useSuspense: false,
+  },
 };
 
 // Helper function to get the language name
 export const getLanguageName = (lang: Language) => {
-    const names: Record<Language, string> = {
-        en: "English",
-        id: "Indonesia",
-    };
-    return names[lang];
+  const names: Record<Language, string> = {
+    en: "English",
+    id: "Indonesia",
+  };
+  return names[lang];
 };
 
 // Storage key for language preference
